@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+## Bienvenido a LimonTaKA
 
-You can use the [editor on GitHub](https://github.com/LimonTaKA/LimonTaKA.github.io/edit/LimonTaKA/Limon-Client/index.md) to maintain and preview the content for your website in Markdown files.
+  public class LimonTaKA extends Humano implements TaKA, Desarrollador {
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+	@Override
+	public String getName() {
+		return "Limon";
+	}
+	
+	@Override
+	public List<String> getAliases() {
+		return Arrays.asList("LimonTaKA", "Mi Nombre");
+	}
 
-### Markdown
+        public Dani() {
+        super("Limon", "Tierra");
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        this.addLanguage("Java", "Javascript", "HTML", "C++");
+     }
+   }
 
-```markdown
-Syntax highlighted code block
+	@Override
+	public String aboutme() {
+		return "Me gusta jugar Minecraft " +
+		"\n" + "Me gusta programar en JavaScript";
+	}
+    
+	@Override
+	public void codingStuff() {
+		String[] learning = ["Java", "Node.js / Discord.js", "Python", "C#", "C++"];
+	}
+	
+} 
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+public abstract class Humano {
 
-1. Numbered
-2. List
+  @Getter private final String username;
+  @Getter private final String country;
 
-**Bold** and _Italic_ and `Code` text
+  private Set<String> languages = new HashSet<>();
+  private Set<String> experiences = new HashSet<>();
 
-[Link](url) and ![Image](src)
-```
+  public Humano(String username, String placeilive) {
+      this.name = username;
+      this.country = placeilive;
+  }
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LimonTaKA/LimonTaKA.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+  public void addLanguage(String... language) {
+      this.languages.addAll(language);
+  }
+  
+}
